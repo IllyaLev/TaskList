@@ -26,6 +26,10 @@ function App() {
     }
   }
 
+  const handleDelete = (idToDelete) => {
+    setTasks(tasks.filter((task) => task.id !== idToDelete))
+  }
+
   return (
     <div className='App'>
       <h1>Task List</h1>
@@ -35,12 +39,23 @@ function App() {
         onChange={handleInputChange}
         placeholder='Add new task'
       />
-      <button onClick={handleAddTask}>
+      <button onClick={handleAddTask} className='addTask'>
         Add New Task
       </button>
+      <div className='filterContainer'>
+        <button>
+          All
+        </button>
+        <button>
+          Completed
+        </button>
+        <button>
+          Incompleted
+        </button>
+      </div>
       <ul>
         {tasks.map((task) => (
-          <Task key={task.id} task={task} onComplete={handleComplete}/>
+          <Task key={task.id} task={task} onComplete={handleComplete} onDelete={handleDelete}/>
         ))}
       </ul>
     </div>

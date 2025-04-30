@@ -26,7 +26,7 @@ input[type="text"] {
   border-radius: 4px;
 }
 
-button {
+.addTask {
   padding: 8px 16px;
   background-color: #4CAF50;
   color: white;
@@ -36,6 +36,10 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover{
+.addTask:hover{
   background-color: #3e8e41;
+}
+
+.filterContainer {
+  margin-top: 20px;
 }
