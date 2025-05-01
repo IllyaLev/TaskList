@@ -7,6 +7,8 @@ function App() {
 
   const [newTask, setNewTask] = useState('');
 
+  const [filter, setFilter] = useState('all');
+
   const handleComplete = (id) => {
     setTasks(
       tasks.map((task) => 
@@ -30,6 +32,12 @@ function App() {
     setTasks(tasks.filter((task) => task.id !== idToDelete))
   }
 
+  const filteredTasks = tasks.filter((task) => {
+    if(filter === 'completed') return task.completed;
+    if(filter === 'incompleted') return !task.completed;
+    return true
+  });
+
   return (
     <div className='App'>
       <h1>Task List</h1>
@@ -43,18 +51,18 @@ function App() {
         Add New Task
       </button>
       <div className='filterContainer'>
-        <button>
+        <button className='filterButton' onClick={() => setFilter('all')}>
           All
         </button>
-        <button>
+        <button className='filterButton' onClick={() => setFilter('completed')}>
           Completed
         </button>
-        <button>
+        <button className='filterButton' onClick={() => setFilter('incompleted')}>
           Incompleted
         </button>
       </div>
       <ul>
-        {tasks.map((task) => (
+        {filteredTasks.map((task) => (
           <Task key={task.id} task={task} onComplete={handleComplete} onDelete={handleDelete}/>
         ))}
       </ul>

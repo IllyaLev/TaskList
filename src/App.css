@@ -43,3 +43,18 @@ input[type="text"] {
 .filterContainer {
   margin-top: 20px;
 }
+
+.filterButton {
+  padding: 8px 16px;
+  margin: 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filterButton:hover {
+  background-color: #3e8e41;
+}
